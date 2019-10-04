@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+
+</head>
+<body>
+<div th:insert="base :: nav"></div>
+<header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source th:src="@{/headervid.mp4}" type="video/mp4">
+    </video>
+    <div class="container h-100">
+        <div class="d-flex text-center h-100">
+            <div class="my-auto w-100 text-white">
+                <h1 class="display-3">Make a Job post</h1>
+                <h2>What do you need? When do you need it?</h2>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<div class="container">
+    <div class="container">
+        <div class="jumbotron">
+<form th:action="@{/process}" th:object="${job}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputAddress">Title</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="A job title" th:field="*{title}">
+        </div>
+        <div class="form-group col-md-6">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress2">Description</label>
+        <textarea type="text" class="form-control" id="inputAddress2" placeholder="A little about your job" rows="3" th:field="*{description}"></textarea>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Author</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="Username" th:field="*{author}">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputState">Phone</label>
+            <input type="text" id="inputState" class="form-control" placeholder="333-333-4444" th:field="*{phone}">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+    </div>
+</div>
+</div>
+<div th:insert="base :: footer"></div>
+<div th:insert="base :: scripts"></div>
+</body>
+</html>

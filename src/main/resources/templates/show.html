@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<div th:insert="base :: nav"></div>
+<header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source th:src="@{/headervid.mp4}" type="video/mp4">
+    </video>
+    <div class="container h-100">
+        <div class="d-flex text-center h-100">
+            <div class="my-auto w-100 text-white">
+                <h1 class="display-3">Job [[${id}]]</h1>
+                <h2>A particular job</h2>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 jumbotron">
+            <div>
+                <div th:hidden="${job.id}"></div>
+                <div class="row">
+                    <div class="col">
+                        <h3>Title</h3>
+                        <p class="form-control" th:text="${job.title}"></p>
+                    </div>
+                    <div class="col">
+                        <h3>Date</h3>
+                        <p class="form-control" th:text="${#dates.format(job.postedDate,'MMM dd, yyyy HH:mm')}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>Description</h3>
+                        <textarea class="form-control" style= "background-color: white" th:text="${job.description}" disabled></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>Author</h3>
+                        <p class="form-control" th:text="${job.author}"></p>
+                    </div>
+                    <div class="col">
+                        <h3>Phone</h3>
+                        <p class="form-control" th:text="${job.phone}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-success"
+                           th:href="@{/detail/{id}(id=${job.id})}">Details
+                        </a> &nbsp;
+                        <a class="btn btn-warning"
+                           th:href="@{/update/{id}(id=${job.id})}">Update
+                        </a> &nbsp;
+                        <a class="btn btn-danger"
+                           th:href="@{/delete/{id}(id=${job.id})}">Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div th:insert="base :: footer"></div>
+<div th:insert="base :: scripts"></div>
+</body>
+</html>
