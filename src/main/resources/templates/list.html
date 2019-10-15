@@ -25,7 +25,7 @@
 <div class="container">
     <div class="row" th:each="job : ${jobs}">
         <div class="col"></div>
-        <div class="col-8 jumbotron">
+        <div class="col-8 jumbotron" id="jumbo">
             <div>
                 <div th:hidden="${job.id}"></div>
                 <div class="row">
@@ -40,18 +40,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                    <h3>Description</h3>
-                    <textarea class="form-control" style= "background-color: white" th:text="${job.description}" disabled></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
                     <h3>Author</h3>
                     <p class="form-control" th:text="${job.author}"></p>
-                    </div>
-                    <div class="col">
-                        <h3>Phone</h3>
-                        <p class="form-control" th:text="${job.phone}"></p>
                     </div>
                 </div>
                 <div class="row">

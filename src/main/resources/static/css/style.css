@@ -52,3 +52,7 @@ body {
 .textarea-disabled{
     background-color:#FFF !important;
 }
+
+#jumbo {
+    background: rgba(200, 54, 54, 0.5);
+}
